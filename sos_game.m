@@ -1,17 +1,17 @@
-%             ************* GÖRÜNTÜ İŞLEME İLE S-O-S OYUNU TASARIMI ****************
+%             ************* GÃ–RÃœNTÃœ Ä°ÅLEME Ä°LE S-O-S OYUNU TASARIMI ****************
 
-% KONYA TEKNİK ÜNİVERSİTESİ MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ ELEKTRİK ELEKTRONİK MÜHENDİSLİĞİ BÖLÜMÜ SAYISIAL GÖRÜNTÜ İŞLEME DERSİ
+% KONYA TEKNÄ°K ÃœNÄ°VERSÄ°TESÄ° MÃœHENDÄ°SLÄ°K VE DOÄA BÄ°LÄ°MLERÄ° FAKÃœLTESÄ° ELEKTRÄ°K ELEKTRONÄ°K MÃœHENDÄ°SLÄ°ÄÄ° BÃ–LÃœMÃœ SAYISIAL GÃ–RÃœNTÃœ Ä°ÅLEME DERSÄ°
 % 2019
-% Projede Çalışanlar : Levent VATAN  ------------ 161222009
-%                      İsmail DERELİ ------------ 161222013
+% Projede Ã‡alÄ±ÅŸanlar : Levent VATAN  ------------ 161222009
+%                      Ä°smail DERELÄ° ------------ 161222013
 %                      Selim Seyfullah SANLAV --- 161222015
 
-% Projenin Amacı : Sisteme verilen çözümlenmemiş S-O-S tablosunu çözümleyerek kullanıcıya göstermek.
-                                                                           % ********* !!!! ÖNEMLİ !!!! *********
-table=im2double(rgb2gray((imread('tablo6.png'))));                         % Tablo eklendi. YENİ BİR TABLO EKLEMEK İÇİN PROJE KLASÖRÜNDEKİ BOŞ ŞABLONU DÜZENLEDİKTEN SONRA KAYDEDİP BURAYA EKLEMEK GEREKMEKTEDİR.
-load('coordinates2.mat');                                                  % Tabloyu 25 parçaya bölmek için 25 adet koordinat verisi çekildi.
+% Projenin AmacÄ± : Sisteme verilen Ã§Ã¶zÃ¼mlenmemiÅŸ S-O-S tablosunu Ã§Ã¶zÃ¼mleyerek kullanÄ±cÄ±ya gÃ¶stermek.
+                                                                           % ********* !!!! Ã–NEMLÄ° !!!! *********
+table=im2double(rgb2gray((imread('tablo6.png'))));                         % Tablo eklendi. YENÄ° BÄ°R TABLO EKLEMEK Ä°Ã‡Ä°N PROJE KLASÃ–RÃœNDEKÄ° BOÅ ÅABLONU DÃœZENLEDÄ°KTEN SONRA KAYDEDÄ°P BURAYA EKLEMEK GEREKMEKTEDÄ°R.
+load('coordinates2.mat');                                                  % Tabloyu 25 parÃ§aya bÃ¶lmek iÃ§in 25 adet koordinat verisi Ã§ekildi.
 
-i1=imresize(imcrop(table,rect1),[93 93]);                                  % 25 tane resim çıkarılıyor. Hepsi 1 kareyi temsil ediyor.
+i1=imresize(imcrop(table,rect1),[93 93]);                                  % 25 tane resim Ã§Ä±karÄ±lÄ±yor. Hepsi 1 kareyi temsil ediyor.
 i2=imresize(imcrop(table,rect2),[93 93]);                    
 i3=imresize(imcrop(table,rect3),[93 93]);
 i4=imresize(imcrop(table,rect4),[93 93]);
@@ -35,9 +35,9 @@ i21=imresize(imcrop(table,rect21),[93 93]);
 i22=imresize(imcrop(table,rect22),[93 93]);
 i23=imresize(imcrop(table,rect23),[93 93]);
 i24=imresize(imcrop(table,rect24),[93 93]);
-i25=imresize(imcrop(table,rect25),[93 93]);                                % 25 adet resim çıkarıldı.
+i25=imresize(imcrop(table,rect25),[93 93]);                                % 25 adet resim Ã§Ä±karÄ±ldÄ±.
 
-i1_ters=imcomplement(i1);                                                  % Karakter tanımlama algoritmasında kullanmak için bu 25 karenin görüntüsü terslenip kaydedildi.
+i1_ters=imcomplement(i1);                                                  % Karakter tanÄ±mlama algoritmasÄ±nda kullanmak iÃ§in bu 25 karenin gÃ¶rÃ¼ntÃ¼sÃ¼ terslenip kaydedildi.
 i2_ters=imcomplement(i2);
 i3_ters=imcomplement(i3);
 i4_ters=imcomplement(i4);
@@ -63,10 +63,10 @@ i23_ters=imcomplement(i23);
 i24_ters=imcomplement(i24);
 i25_ters=imcomplement(i25);                                                
 
-%***************************************KARAKTER TESPİT ALGORİTMASI******************************************
+%***************************************KARAKTER TESPÄ°T ALGORÄ°TMASI******************************************
 
-% ******* Boş Karakter Bulma *********
-squareIsEmpty=zeros(5,5);                                                  % Boş karakterlerin tespiti için oluşturuldu. {**squareIsEmpty[i]=0 => Karakter 'O' veya 'S' } {**squareIsEmpty=1 => Karakter 'BOŞ' }
+% ******* BoÅŸ Karakter Bulma *********
+squareIsEmpty=zeros(5,5);                                                  % BoÅŸ karakterlerin tespiti iÃ§in oluÅŸturuldu. {**squareIsEmpty[i]=0 => Karakter 'O' veya 'S' } {**squareIsEmpty=1 => Karakter 'BOÅ' }
 
 sayac1=0;
 sayac2=0;
@@ -94,7 +94,7 @@ sayac23=0;
 sayac24=0;
 sayac25=0;
 
-for x=1:93                                                                 % 25 karede 93x93 boyutunda olduğundan her karenin 1.satırından 93. satırına, 1.sütunundan 93. sütununa kadar kontrol edildi.
+for x=1:93                                                                 % 25 karede 93x93 boyutunda olduÄŸundan her karenin 1.satÄ±rÄ±ndan 93. satÄ±rÄ±na, 1.sÃ¼tunundan 93. sÃ¼tununa kadar kontrol edildi.
     for y=1:93
         if i1(x,y)<0.4
             sayac1=sayac1+1;
@@ -102,7 +102,7 @@ for x=1:93                                                                 % 25 
         if i2(x,y)<0.4
             sayac2=sayac2+1;
         end
-        if i3(x,y)<0.4f
+        if i3(x,y)<0.4
             sayac3=sayac3+1;
         end
         if i4(x,y)<0.4
@@ -174,7 +174,7 @@ for x=1:93                                                                 % 25 
     end
 end
 
-if sayac1==0                                                               % Eğer karede siyah kare tespit edilmediyse sayacın değeri 0 kaldı ve boş olduğu tespit edildi.
+if sayac1==0                                                               % EÄŸer karede siyah kare tespit edilmediyse sayacÄ±n deÄŸeri 0 kaldÄ± ve boÅŸ olduÄŸu tespit edildi.
     squareIsEmpty(1,1)=1;
 end
 if sayac2==0
@@ -251,7 +251,7 @@ if sayac25==0
 end
 
 % ******* S-O Bulma *********
-if squareIsEmpty(1,1)==0                                                   % 'O' karakterini bulmak için imfill komutu kullanıldı.
+if squareIsEmpty(1,1)==0                                                   % 'O' karakterini bulmak iÃ§in imfill komutu kullanÄ±ldÄ±.
     i_1=imfill(i1_ters,'holes');
 else
     i_1=i1;
@@ -403,11 +403,11 @@ sayac23=0;
 sayac24=0;
 sayac25=0;
 
-for x=1:93                                                                 % Boş olamyan karakterlerdeki siyah pixel sayısı belirleniyor. 'O' ve 'S' tespiti siyah pixel sayısından yola çıklılarak bulunacak.
+for x=1:93                                                                 % BoÅŸ olamyan karakterlerdeki siyah pixel sayÄ±sÄ± belirleniyor. 'O' ve 'S' tespiti siyah pixel sayÄ±sÄ±ndan yola Ã§Ä±klÄ±larak bulunacak.
     for y=1:93
         if i_1(x,y)<0.4                                                    % Pixel siyah ise
-            if squareIsEmpty(1,1)==0                                       % Kare boş karakter DEĞİL ise
-                sayac1=sayac1+1;                                           % Sayacı 1 arttır.
+            if squareIsEmpty(1,1)==0                                       % Kare boÅŸ karakter DEÄÄ°L ise
+                sayac1=sayac1+1;                                           % SayacÄ± 1 arttÄ±r.
             end
         end
         if i_2(x,y)<0.4
@@ -534,7 +534,7 @@ for x=1:93                                                                 % Boş
 end
 
 sosmatrix=zeros(5,5);                                                      % SOS tablosu bu matrise doldurulacak. sosmatrix[i]=-1 ==> 'S'
-                                                                           %                                      sosmatrix[i]=0  ==> 'BOŞ'
+                                                                           %                                      sosmatrix[i]=0  ==> 'BOÅ'
 if squareIsEmpty(1,1)==0                                                   %                                      sosmatrix[i]=1  ==> 'O'
 if (10<sayac1) && (sayac1<7500)
     sosmatrix(1,1)=1;
@@ -542,8 +542,8 @@ else
     sosmatrix(1,1)=-1;
 end
 end
-if squareIsEmpty(1,2)==0                                                   % Kare boş karakter DEĞİL ise
-if (10<sayac2) && (sayac2<7500)                                            % 'O' ve 'S' karakterlerinin siyah pixel sayısına göre filtre uygulanıyor
+if squareIsEmpty(1,2)==0                                                   % Kare boÅŸ karakter DEÄÄ°L ise
+if (10<sayac2) && (sayac2<7500)                                            % 'O' ve 'S' karakterlerinin siyah pixel sayÄ±sÄ±na gÃ¶re filtre uygulanÄ±yor
     sosmatrix(1,2)=1;                                                      % Karakter 'O' dur.
 else
     sosmatrix(1,2)=-1;                                                     % Karakter 'S' dir.
@@ -711,14 +711,14 @@ else
 end
 end
 
-%************** SOS ÇÖZÜMLEME ALGORİTMASI ******************   
+%************** SOS Ã‡Ã–ZÃœMLEME ALGORÄ°TMASI ******************   
 
-beConvertMatrix=zeros(5,5);                     % Tabloda sos olan yerleri işaretlemek için bir değişim matrisi oluşturuldu. Eğer bu matristeki bir elemanın değeri 1 ise o elemanın resmi boyanacak.
+beConvertMatrix=zeros(5,5);                     % Tabloda sos olan yerleri iÅŸaretlemek iÃ§in bir deÄŸiÅŸim matrisi oluÅŸturuldu. EÄŸer bu matristeki bir elemanÄ±n deÄŸeri 1 ise o elemanÄ±n resmi boyanacak.
 
-%**** Orta Bölge Sos Belirleme Algoritması *****
+%**** Orta BÃ¶lge Sos Belirleme AlgoritmasÄ± *****
 
-for x=2:4                                       % Satır Numarası
-    for y=2:4                                   % Sütun Numarası
+for x=2:4                                       % SatÄ±r NumarasÄ±
+    for y=2:4                                   % SÃ¼tun NumarasÄ±
         
         if sosmatrix(x,y)==1                    % Ortadaki karelerden birinde o tespit ederse
             
@@ -739,7 +739,7 @@ for x=2:4                                       % Satır Numarası
                 end
             end
 %*****************           
-            if sosmatrix(x-1,y-1)==-1           % Sol-Üst kareyi kontrol edecek.
+            if sosmatrix(x-1,y-1)==-1           % Sol-Ãœst kareyi kontrol edecek.
                 if sosmatrix(x+1,y+1)==-1
                     beConvertMatrix(x-1,y-1)=1;
                     beConvertMatrix(x+1,y+1)=1;
@@ -747,7 +747,7 @@ for x=2:4                                       % Satır Numarası
                 end
             end
 %****************
-            if sosmatrix(x-1,y)==-1             % Üst kareyi kontrol edecek.
+            if sosmatrix(x-1,y)==-1             % Ãœst kareyi kontrol edecek.
                 if sosmatrix(x+1,y)==-1
                     beConvertMatrix(x-1,y)=1;
                     beConvertMatrix(x+1,y)=1;
@@ -759,24 +759,24 @@ for x=2:4                                       % Satır Numarası
     end
 end
 
-%**** Köşe Sos Belirleme Algoritması *****
+%**** KÃ¶ÅŸe Sos Belirleme AlgoritmasÄ± *****
 
-if sosmatrix(1,1)==1        %(1,1) köşe kontrol edildi.
+if sosmatrix(1,1)==1        %(1,1) kÃ¶ÅŸe kontrol edildi.
     beConvertMatrix(1,1)=0;
 end
-if sosmatrix(1,5)==1        %(1,5) köşe kontrol edildi.
+if sosmatrix(1,5)==1        %(1,5) kÃ¶ÅŸe kontrol edildi.
     beConvertMatrix(1,5)=0;
 end
-if sosmatrix(5,1)==1        %(5,1) köşe kontrol edildi.
+if sosmatrix(5,1)==1        %(5,1) kÃ¶ÅŸe kontrol edildi.
     beConvertMatrix(5,1)=0;
 end
-if sosmatrix(5,5)==1        %(5,5) köşe kontrol edildi.
+if sosmatrix(5,5)==1        %(5,5) kÃ¶ÅŸe kontrol edildi.
     beConvertMatrix(5,5)=0;
 end
 
-%**** Alt ve Üst Kenar Sos Belirleme Algoritması *****
+%**** Alt ve Ãœst Kenar Sos Belirleme AlgoritmasÄ± *****
 
-for x=1:4:5                             % Alt ve Üst kenarlar sağa-sola kontrol edildii.
+for x=1:4:5                             % Alt ve Ãœst kenarlar saÄŸa-sola kontrol edildii.
     for y=2:4
         if sosmatrix(x,y)==1
         if sosmatrix(x,y-1)==-1
@@ -790,7 +790,7 @@ for x=1:4:5                             % Alt ve Üst kenarlar sağa-sola kontrol 
     end
 end
 
-for y=1:4:5                              % Sağ ve Sol kenarlar aşağı-yukarı kontrol edildi.
+for y=1:4:5                              % SaÄŸ ve Sol kenarlar aÅŸaÄŸÄ±-yukarÄ± kontrol edildi.
     for x=2:4
        if sosmatrix(x,y)==1
           if sosmatrix(x-1,y)==-1
@@ -804,7 +804,7 @@ for y=1:4:5                              % Sağ ve Sol kenarlar aşağı-yukarı kont
     end
 end
 
-if beConvertMatrix(1,1)==1                                                 %Burada yazılan kodlar ile tespit edilen soslar işaretleniyor.
+if beConvertMatrix(1,1)==1                                                 %Burada yazÄ±lan kodlar ile tespit edilen soslar iÅŸaretleniyor.
     i1=imcomplement(i1);
 end
 if beConvertMatrix(1,2)==1
@@ -880,7 +880,7 @@ if beConvertMatrix(5,5)==1
     i25=imcomplement(i25);
 end
 
-for x=1:93                                                                 %Burada tüm tablo elemanlarının resimlerine kenarlık eklendi.
+for x=1:93                                                                 %Burada tÃ¼m tablo elemanlarÄ±nÄ±n resimlerine kenarlÄ±k eklendi.
     i1(1,x)=0;
     i2(1,x)=0;
     i3(1,x)=0;
@@ -990,10 +990,10 @@ for x=1:93                                                                 %Bura
     i25(x,93)=0;   
 end
 
-% Tüm resimler birleştirilerek resultImage matrisinde toplandı ve çözümlenmiş resim elde edildi.
+% TÃ¼m resimler birleÅŸtirilerek resultImage matrisinde toplandÄ± ve Ã§Ã¶zÃ¼mlenmiÅŸ resim elde edildi.
 resultImage=[i1 i2 i3 i4 i5; i6 i7 i8 i9 i10; i11 i12 i13 i14 i15; i16 i17 i18 i19 i20; i21 i22 i23 i24 i25];
 
 figure('Name','Orjinal Resim'), 
-imshow(table);                      % Orjinal Resmi Görüntüle.
-figure('Name','Çözümlenmiş Resim');
-imshow(resultImage);                % Çözümlenmiş Resmi Görüntüle.
+imshow(table);                      % Orjinal Resmi GÃ¶rÃ¼ntÃ¼le.
+figure('Name','Ã‡Ã¶zÃ¼mlenmiÅŸ Resim');
+imshow(resultImage);                % Ã‡Ã¶zÃ¼mlenmiÅŸ Resmi GÃ¶rÃ¼ntÃ¼le.
