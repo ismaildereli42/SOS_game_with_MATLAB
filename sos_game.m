@@ -2,6 +2,9 @@
 
 % KONYA TEKNİK ÜNİVERSİTESİ MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ ELEKTRİK ELEKTRONİK MÜHENDİSLİĞİ BÖLÜMÜ SAYISIAL GÖRÜNTÜ İŞLEME DERSİ
 % 2019
+
+% GRUP ADI : GÖRÜNTÜ.TİF
+
 % Projede Çalışanlar : Levent VATAN  ------------ 161222009
 %                      İsmail DERELİ ------------ 161222013
 %                      Selim Seyfullah SANLAV --- 161222015
